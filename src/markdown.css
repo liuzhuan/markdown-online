@@ -16,9 +16,10 @@ h2 {
 ul,
 ol {
   margin: 1em 0;
-  padding-inline-start: 1em;
+  padding-inline-start: 2em;
 }
 
 pre {
   margin: 1em 0;
+  overflow-x: auto;
 }
