@@ -25,7 +25,7 @@ const debouncedUpdateContent = debounce((content) => {
   // 更新预览区和本地缓存
   updatePreview(content);
   updateStore(content);
-}, 300);
+}, 500);
 
 // 初始化编辑器
 const view = new EditorView({
@@ -36,7 +36,7 @@ const view = new EditorView({
     html(),
     markdown(),
     onUpdateHandler,
-    placeholder('Input some HTML'),
+    placeholder('Input some Markdown'),
   ],
 });
 
