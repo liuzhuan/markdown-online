@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/markdown-online.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Online</title>
+  </head>
+  <body>
+    <section class="flex">
+      <div id="editor-wrapper">
+        <div id="dragger"></div>
+      </div>
+      <div id="preview-wrapper">
+        <iframe
+          id="preview"
+          frameborder="0"
+          sandbox="allow-forms allow-scripts allow-downloads allow-modals"
+        ></iframe>
+        <div id="event-tracker"></div>
+      </div>
+    </section>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

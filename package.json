@@ -1,0 +1,21 @@
+{
+  "name": "markdown-online",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-markdown": "^6.3.2",
+    "@codemirror/view": "^6.36.4",
+    "codemirror": "^6.0.1",
+    "markdown-it": "^14.1.0"
+  }
+}
