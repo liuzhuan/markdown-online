@@ -22,4 +22,7 @@ ol {
 pre {
   margin: 1em 0;
   overflow-x: auto;
+  border: 1px solid silver;
+  font-size: 14px;
+  padding: 4px 6px;
 }
