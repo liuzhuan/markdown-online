@@ -33,6 +33,7 @@ const view = new EditorView({
   extensions: [
     basicSetup,
     markdown(),
+    EditorView.lineWrapping,
     onUpdateHandler,
     placeholder('Input some Markdown'),
   ],
