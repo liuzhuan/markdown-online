@@ -1,6 +1,5 @@
 import { basicSetup } from 'codemirror';
 import { EditorView, placeholder } from '@codemirror/view';
-import { html } from '@codemirror/lang-html';
 import { markdown } from '@codemirror/lang-markdown';
 import markdownit from 'markdown-it';
 import './style.css';
@@ -33,7 +32,6 @@ const view = new EditorView({
   parent: document.getElementById('editor-wrapper'),
   extensions: [
     basicSetup,
-    html(),
     markdown(),
     onUpdateHandler,
     placeholder('Input some Markdown'),
