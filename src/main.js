@@ -18,6 +18,30 @@ const onUpdateHandler = EditorView.updateListener.of((update) => {
   }
 });
 
+// 监听编辑器的粘贴事件，用于处理图片上传
+const onPasteHandler = EditorView.domEventHandlers({
+  paste(event, view) {
+    const items = event.clipboardData.items;
+    for (const item of items) {
+      if (item.type.indexOf('image') !== -1) {
+        const file = item.getAsFile();
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const base64 = e.target.result;
+          const transaction = view.state.update({
+            changes: {
+              from: view.state.selection.main.head,
+              insert: `\n![image](${base64})\n`,
+            },
+          });
+          view.dispatch(transaction);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  },
+});
+
 const debouncedUpdateContent = debounce((content) => {
   if (view.composing) return;
 
@@ -35,6 +59,7 @@ const view = new EditorView({
     markdown(),
     EditorView.lineWrapping,
     onUpdateHandler,
+    onPasteHandler,
     placeholder('Input some Markdown'),
   ],
 });
