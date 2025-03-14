@@ -26,3 +26,9 @@ pre {
   font-size: 14px;
   padding: 4px 6px;
 }
+
+blockquote {
+  padding-left: 10px;
+  border-left: 3px solid #dbdbdb;
+  margin: 1em 0;
+}
