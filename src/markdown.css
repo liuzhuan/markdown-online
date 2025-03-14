@@ -19,13 +19,20 @@ ol {
   padding-inline-start: 2em;
 }
 
+code {
+  font-size: 16px;
+}
+
 pre {
   margin: 1em 0;
   overflow-x: auto;
   border: 1px solid silver;
   border-radius: 8px;
-  font-size: 14px;
   padding: 8px;
+}
+
+pre code {
+  font-size: 14px;
 }
 
 blockquote {
