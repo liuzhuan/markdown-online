@@ -67,6 +67,8 @@ const view = new EditorView({
 init();
 
 function init() {
+  initPreview();
+
   // 读取本地缓存并渲染页面
   const value = localStorage.getItem(CACHE_KEY);
   if (value) {
@@ -83,6 +85,10 @@ function init() {
 }
 
 function updatePreview(rawMd) {
+  preview.contentWindow.postMessage(md.render(rawMd), '*');
+}
+
+function initPreview() {
   preview.srcdoc = `
   <!doctype html>
   <html>
@@ -92,10 +98,14 @@ function updatePreview(rawMd) {
       <script src="./highlight.js/11.9.0/highlight.min.js"></script>
       <script src="./highlight.js/11.9.0/languages/javascript.min.js"></script>
       <script src="./highlight.js/11.9.0/languages/diff.min.js"></script>
+      <script>
+        window.addEventListener('message', (event) => {
+          document.body.innerHTML = event.data;
+          hljs.highlightAll();
+        });
+      </script>
     </head>
     <body>
-      ${md.render(rawMd)}
-      <script>hljs.highlightAll();</script>
     </body>
   </html>`;
 }
