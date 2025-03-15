@@ -88,9 +88,13 @@ function updatePreview(rawMd) {
   <html>
     <head>
       <style>${mdStyle}</style>
+      <link rel="stylesheet" href="./highlight.js/11.9.0/styles/xcode.min.css">
+      <script src="./highlight.js/11.9.0/highlight.min.js"></script>
+      <script src="./highlight.js/11.9.0/languages/javascript.min.js"></script>
     </head>
     <body>
       ${md.render(rawMd)}
+      <script>hljs.highlightAll();</script>
     </body>
   </html>`;
 }
